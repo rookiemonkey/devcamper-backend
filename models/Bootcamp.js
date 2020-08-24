@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 const isUrl = require('validator/lib/isURL');
 const isEmail = require('validator/lib/isEmail');
 
@@ -99,5 +100,11 @@ const BootcampSchema = new mongoose.Schema(
     },
     { timestamps: true }
 );
+
+// create slug from name before save
+BootcampSchema.pre('save', function (next) {
+    this.slug = slugify(this.name, { lower: true })
+    next()
+})
 
 module.exports = mongoose.model('Bootcamp', BootcampSchema);
