@@ -2,6 +2,7 @@ require('dotenv').config({ path: './config/config.env' });
 require('./config/database')();
 const app = require('express')();
 const morgan = require('morgan');
+const chalk = require('chalk');
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
@@ -21,12 +22,14 @@ app.use('/api/v1/users', require('./routes/users'));
 // =======================================================
 const server = app.listen(process.env.PORT, () => {
   console.log(
-    `Server running in ${process.env.NODE_ENV} started at PORT:${process.env.PORT}`
+    chalk.yellow(
+      `Server running in ${process.env.NODE_ENV} started at PORT:${process.env.PORT}`
+    )
   );
 });
 
 process.on('unhandledRejection', (err, promise) => {
-  console.log(`Error: ${err.message}`);
+  console.log(chalk.red(`Error: ${err.message}`));
   server.close(() => {
     process.exit(1);
   });
