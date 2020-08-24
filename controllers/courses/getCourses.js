@@ -12,8 +12,16 @@ const toHandleAsync = require('../../middlewares/toHandleAsync');
 const getCourses = toHandleAsync(async (req, res, next) => {
     let query;
 
-    if (req.params.bootcampId) { query = Course.find({ bootcamp: req.params.bootcampId }) }
-    else { query = Course.find() }
+    if (req.params.bootcampId) {
+        query = Course
+            .find({ bootcamp: req.params.bootcampId })
+            .populate({ path: 'bootcamp', select: 'name description' })
+    }
+    else {
+        query = Course
+            .find()
+            .populate({ path: 'bootcamp', select: 'name description' })
+    }
 
     const foundCourses = await query;
 
