@@ -1,5 +1,10 @@
+/**
+ * @DESC get all bootcamp
+ * @PATH GET /api/v1/bootcamps/
+ */
+
 const getBootcamps = (req, res, next) => {
-  res.send('get all bootcamps');
+  res.status(200).json({ sucess: true, msg: `get all bootcamps` });
 };
 
 module.exports = getBootcamps;

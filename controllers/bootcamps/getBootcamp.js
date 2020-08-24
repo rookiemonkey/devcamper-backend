@@ -1,5 +1,12 @@
+/**
+ * @DESC get a bootcamp
+ * @PATH GET /api/v1/bootcamps/:bootcampId
+ */
+
 const getBootcamp = (req, res, next) => {
-  res.send('get a bootcamp');
+  res
+    .status(200)
+    .json({ sucess: true, msg: `get a bootcamp ${req.params.bootcampId}` });
 };
 
 module.exports = getBootcamp;

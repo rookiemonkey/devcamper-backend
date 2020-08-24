@@ -7,11 +7,13 @@ const deleteBootcamp = require('../controllers/bootcamps/deleteBootcamp');
 
 // ROOT: /api/v1/bootcamps
 
-router
-  .get('/', getBootcamps)
-  .post('/', createBootcamp)
-  .get('/:id', getBootcamp)
-  .put('/:id', updateBootcamp)
-  .delete('/:id', deleteBootcamp);
+router.route('/')
+  .get(getBootcamps)
+  .post(createBootcamp);
+
+router.route('/:bootcampId')
+  .get(getBootcamp)
+  .put(updateBootcamp)
+  .delete(deleteBootcamp);
 
 module.exports = router;

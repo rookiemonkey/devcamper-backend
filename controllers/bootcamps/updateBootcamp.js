@@ -1,5 +1,12 @@
+/**
+ * @DESC update a bootcamp
+ * @PATH PUT /api/v1/bootcamps/:bootcampId
+ */
+
 const updateBootcamp = (req, res, next) => {
-  res.send('update a bootcamp');
+  res
+    .status(200)
+    .json({ sucess: true, msg: `updated bootcamp ${req.params.bootcampId}` });
 };
 
 module.exports = updateBootcamp;
