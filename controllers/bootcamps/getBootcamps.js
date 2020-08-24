@@ -1,10 +1,24 @@
+const Bootcamp = require('../../models/Bootcamp');
+
 /**
  * @DESC get all bootcamp
  * @PATH GET /api/v1/bootcamps/
  */
 
-const getBootcamps = (req, res, next) => {
-  res.status(200).json({ success: true, msg: `get all bootcamps` });
+const getBootcamps = async (req, res, next) => {
+  try {
+    const foundBootcamps = await Bootcamp.find({})
+
+    res
+      .status(200)
+      .json({ success: true, data: foundBootcamps });
+  }
+
+  catch (error) {
+    res
+      .status(400)
+      .json({ success: false, msg: `${error.message}` });
+  }
 };
 
 module.exports = getBootcamps;
