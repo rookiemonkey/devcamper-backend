@@ -1,4 +1,5 @@
 const Bootcamp = require('../../models/Bootcamp');
+const ErrorResponse = require('../../utils/class_error');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
 
 /**
