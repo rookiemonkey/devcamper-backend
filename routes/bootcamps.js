@@ -1,5 +1,6 @@
 const router = require('express')();
 const getCourses = require('../controllers/courses/getCourses');
+const createCourse = require('../controllers/courses/createCourse');
 const getBootcamps = require('../controllers/bootcamps/getBootcamps');
 const getBootcamp = require('../controllers/bootcamps/getBootcamp');
 const createBootcamp = require('../controllers/bootcamps/createBootcamp');
@@ -17,7 +18,8 @@ router.route('/')
   .post(createBootcamp);
 
 router.route('/:bootcampId/courses')
-  .get(getCourses);
+  .get(getCourses)
+  .post(createCourse);
 
 router.route('/:bootcampId')
   .get(getBootcamp)
