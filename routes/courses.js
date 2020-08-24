@@ -1,9 +1,9 @@
-const router = require('express')();
+const router = require('express').Router({ mergeParams: true });
+const getCourses = require('../controllers/courses/getCourses');
 
 // ROOT: /api/v1/courses
 
-router.get('/', (req, res) => {
-  res.send('get all courses');
-});
+router.route('/')
+  .get(getCourses)
 
 module.exports = router;
