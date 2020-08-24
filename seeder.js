@@ -1,4 +1,5 @@
 // dir _seeds includes all the seeds (dummy data)
+// seeds files are in json format depending on the schema fields
 
 require('dotenv').config({ path: './config/config.env' });
 const fs = require('fs');
