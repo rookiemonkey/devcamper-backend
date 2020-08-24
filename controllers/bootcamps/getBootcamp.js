@@ -8,6 +8,7 @@ const Bootcamp = require('../../models/Bootcamp');
 const getBootcamp = async (req, res, next) => {
   try {
     const foundBootcamp = await Bootcamp.findById(req.params.bootcampId)
+    if (!foundBootcamp) { throw new Error(`Bootcamp doesn't exists`) }
 
     res
       .status(200)
