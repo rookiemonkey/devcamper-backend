@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const chalk = require('chalk');
 
 if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
+    app.use(morgan('dev'));
 }
 
 // =======================================================
@@ -21,16 +21,16 @@ app.use('/api/v1/users', require('./routes/users'));
 // SERVER
 // =======================================================
 const server = app.listen(process.env.PORT, () => {
-  console.log(
-    chalk.yellow(
-      `Server running in ${process.env.NODE_ENV} started at PORT:${process.env.PORT}`
-    )
-  );
+    console.log(
+        chalk.yellow(
+            `Server running in ${process.env.NODE_ENV} started at PORT:${process.env.PORT}`
+        )
+    );
 });
 
 process.on('unhandledRejection', (err, promise) => {
-  console.log(chalk.red(`Error: ${err.message}`));
-  server.close(() => {
-    process.exit(1);
-  });
+    console.log(chalk.red(`Error: ${err.message}`));
+    server.close(() => {
+        process.exit(1);
+    });
 });
