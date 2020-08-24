@@ -8,7 +8,7 @@ const Bootcamp = require('../../models/Bootcamp');
 const deleteBootcamp = async (req, res, next) => {
   try {
     const foundBootcamp = await Bootcamp.findByIdAndDelete(req.params.bootcampId)
-    if (!foundBootcamp) { throw new Error(`Bootcamp doesn't exists`) }
+    if (!foundBootcamp) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) }
 
     res
       .status(200)
@@ -16,9 +16,7 @@ const deleteBootcamp = async (req, res, next) => {
   }
 
   catch (error) {
-    res
-      .status(400)
-      .json({ success: false, msg: `${error.message}` });
+    next(error)
   }
 };
 

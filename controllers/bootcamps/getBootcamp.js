@@ -1,4 +1,5 @@
 const Bootcamp = require('../../models/Bootcamp');
+const ErrorResponse = require('../../utils/class_error');
 
 /**
  * @DESC get a bootcamp
@@ -8,7 +9,7 @@ const Bootcamp = require('../../models/Bootcamp');
 const getBootcamp = async (req, res, next) => {
   try {
     const foundBootcamp = await Bootcamp.findById(req.params.bootcampId)
-    if (!foundBootcamp) { next(new Error(`Bootcamp doesn't exists`)) }
+    if (!foundBootcamp) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) }
 
     res
       .status(200)
@@ -16,7 +17,7 @@ const getBootcamp = async (req, res, next) => {
   }
 
   catch (error) {
-    next(new Error(`Bootcamp doesn't exists`))
+    next(error)
   }
 };
 

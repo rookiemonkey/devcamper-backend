@@ -10,7 +10,7 @@ const updateBootcamp = async (req, res, next) => {
     const foundBootcamp = await Bootcamp.findByIdAndUpdate(
       req.params.bootcampId, req.body, { new: true, runValidators: true }
     )
-    if (!foundBootcamp) { throw new Error(`Bootcamp doesn't exists`) }
+    if (!foundBootcamp) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) }
 
     res
       .status(200)
@@ -18,9 +18,7 @@ const updateBootcamp = async (req, res, next) => {
   }
 
   catch (error) {
-    res
-      .status(400)
-      .json({ success: false, msg: `${error.message}` });
+    next(error)
   }
 };
 
