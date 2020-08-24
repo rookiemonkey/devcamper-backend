@@ -11,7 +11,7 @@ const getBootcamps = async (req, res, next) => {
 
     res
       .status(200)
-      .json({ success: true, data: foundBootcamps });
+      .json({ success: true, count: foundBootcamps.length, data: foundBootcamps });
   }
 
   catch (error) {
