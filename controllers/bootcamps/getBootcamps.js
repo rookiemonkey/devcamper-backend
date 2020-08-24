@@ -8,13 +8,33 @@ const toHandleAsync = require('../../middlewares/toHandleAsync');
 
 const getBootcamps = toHandleAsync(async (req, res, next) => {
 
-  // user query eg: bootcamps?averageCost[lte]=1000
-  let queryString = JSON.stringify(req.query);
+  // init a query var
+  let query;
+
+  // create a copy of the query
+  const requestQuery = { ...req.query };
+
+  // exclude select but will add again later
+  const removeFields = ['select'];
+  removeFields.forEach(param => delete requestQuery[param]);
+
+  // convertto string: user query eg: bootcamps?averageCost[lte]=1000
+  let queryString = JSON.stringify(requestQuery);
 
   // transform into eg: {"averageCost":{"$lte":"1000"}}
   queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
 
-  const foundBootcamps = await Bootcamp.find(JSON.parse(queryString))
+  // convert to Object and save the Query
+  query = Bootcamp.find(JSON.parse(queryString));
+
+  if (req.query.select) {
+    // if req.query.select is initially requested, add it again
+    // user query  eg: bootcamps?select=name,description
+    const fields = req.query.select.split(',').join(' ');
+    query = query.select(fields)
+  }
+
+  const foundBootcamps = await query;
 
   res
     .status(200)
