@@ -4,7 +4,7 @@
  */
 
 const getBootcamps = (req, res, next) => {
-  res.status(200).json({ sucess: true, msg: `get all bootcamps` });
+  res.status(200).json({ success: true, msg: `get all bootcamps` });
 };
 
 module.exports = getBootcamps;

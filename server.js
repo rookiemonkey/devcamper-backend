@@ -1,8 +1,12 @@
 require('dotenv').config({ path: './config/config.env' });
 require('./config/database')();
 const app = require('express')();
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const chalk = require('chalk');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));

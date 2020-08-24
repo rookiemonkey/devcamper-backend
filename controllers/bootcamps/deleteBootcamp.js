@@ -6,7 +6,7 @@
 const deleteBootcamp = (req, res, next) => {
   res
     .status(200)
-    .json({ sucess: true, msg: `deleted a bootcamp ${req.params.bootcampId}` });
+    .json({ success: true, msg: `deleted a bootcamp ${req.params.bootcampId}` });
 };
 
 module.exports = deleteBootcamp;
