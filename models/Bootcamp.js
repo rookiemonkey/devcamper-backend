@@ -114,6 +114,16 @@ BootcampSchema.virtual('courses', {
     justOne: false // since we want an array
 })
 
+// cascade delete courses when bootcamp is deleted
+BootcampSchema.pre('remove', async function (next) {
+    let bootcampToBeRemoved = this
+
+    await bootcampToBeRemoved
+        .model('Course')
+        .deleteMany({ bootcamp: bootcampToBeRemoved._id })
+    next();
+})
+
 // create slug from name before save
 BootcampSchema.pre('save', function (next) {
     this.slug = slugify(this.name, { lower: true })

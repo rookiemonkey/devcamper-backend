@@ -8,8 +8,10 @@ const toHandleAsync = require('../../middlewares/toHandleAsync');
  */
 
 const deleteBootcamp = toHandleAsync(async (req, res, next) => {
-  const foundBootcamp = await Bootcamp.findByIdAndDelete(req.params.bootcampId)
+  const foundBootcamp = await Bootcamp.findById(req.params.bootcampId)
   if (!foundBootcamp) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) }
+
+  await foundBootcamp.remove();
 
   res
     .status(200)

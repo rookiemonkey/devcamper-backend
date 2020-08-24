@@ -70,6 +70,7 @@ const getBootcamps = toHandleAsync(async (req, res, next) => {
 
   // execute query
   const foundBootcamps = await query;
+  if (!foundBootcamps) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) }
 
   res
     .status(200)
