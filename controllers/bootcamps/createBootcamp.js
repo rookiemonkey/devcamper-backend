@@ -15,9 +15,7 @@ const createBootcamp = async (req, res, next) => {
 
 
     catch (error) {
-        res
-            .status(400)
-            .json({ success: false, msg: `${error.message}` });
+        next(error)
     }
 };
 
