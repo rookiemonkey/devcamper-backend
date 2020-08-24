@@ -1,6 +1,10 @@
 require('dotenv').config({ path: './config/config.env' });
-const express = require('express');
-const app = express();
+const app = require('express')();
+const morgan = require('morgan');
+
+if (process.env.NODE_ENV === 'developement') {
+  app.use(morgan('dev'));
+}
 
 // =======================================================
 // ROUTES
