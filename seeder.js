@@ -3,10 +3,11 @@
 
 require('dotenv').config({ path: './config/config.env' });
 const fs = require('fs');
+const Spinner = require('cli-spinner').Spinner;
 const mongoose = require('mongoose');
 const chalk = require('chalk');
 const Bootcamp = require('./models/Bootcamp');
-
+const Course = require('./models/Course');
 
 // check user options
 if (!process.argv[2]) {
@@ -16,7 +17,6 @@ if (!process.argv[2]) {
         -d = to Destroy dummy data from the database`))
     process.exit()
 }
-
 
 // connect to database
 mongoose.connect(process.env.DB_URL, {
@@ -29,13 +29,19 @@ mongoose.connect(process.env.DB_URL, {
 
 // read seeds json files
 const Bootcamps = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/bootcamps.json`, 'utf-8'))
+const Courses = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/courses.json`, 'utf-8'))
 
 
 // function to import/delete to database
 const importData = async () => {
     try {
+        const spinner = new Spinner('Importing data ... %s');
+        spinner.setSpinnerString("⣾⣽⣻⢿⡿⣟⣯⣷");
+        spinner.start();
         await Bootcamp.create(Bootcamps);
-        console.log(chalk.blue('Data Imported to the database'));
+        await Course.create(Courses)
+        spinner.stop(true);
+        console.log(chalk.green('Data Imported to the database'));
         process.exit();
     }
     catch (error) { console.log(chalk.bgRed('Failed Importing'), error) }
@@ -43,8 +49,13 @@ const importData = async () => {
 
 const destroyData = async () => {
     try {
+        const spinner = new Spinner('Destroying data ... %s');
+        spinner.setSpinnerString("⣾⣽⣻⢿⡿⣟⣯⣷");
+        spinner.start();
         await Bootcamp.deleteMany();
-        console.log(chalk.blue('Data Destroyed'));
+        await Course.deleteMany();
+        spinner.stop(true);
+        console.log(chalk.green('Data Destroyed'));
         process.exit();
     }
     catch (error) { console.log(chalk.bgRed('Failed Destroying'), error) }

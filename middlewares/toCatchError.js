@@ -3,8 +3,6 @@ const toCatchError = (error, req, res, next) => {
     let requestPath = req.url
     let requestMethod = req.method
 
-    console.log(error)
-
     // custom error
     if (error.name === 'ErrorResponse') {
         errorResponse.message = error.message
