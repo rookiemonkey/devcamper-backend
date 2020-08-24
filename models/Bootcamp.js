@@ -99,8 +99,20 @@ const BootcampSchema = new mongoose.Schema(
             default: false,
         },
     },
-    { timestamps: true }
+    {
+        timestamps: true,
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true }
+    }
 );
+
+// reverse populate with virtual fields
+BootcampSchema.virtual('courses', {
+    ref: 'Course', // reference schema
+    localField: '_id', // local source information
+    foreignField: 'bootcamp', // field in courses being referenced
+    justOne: false // since we want an array
+})
 
 // create slug from name before save
 BootcampSchema.pre('save', function (next) {

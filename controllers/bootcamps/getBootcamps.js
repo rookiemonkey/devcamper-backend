@@ -27,7 +27,9 @@ const getBootcamps = toHandleAsync(async (req, res, next) => {
   queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
 
   // convert to Object and save the Query
-  query = Bootcamp.find(JSON.parse(queryString));
+  query = Bootcamp
+    .find(JSON.parse(queryString))
+    .populate('courses')
 
 
   // ===== SELECT
