@@ -34,4 +34,38 @@ const CourseSchema = new mongoose.Schema({
     }
 }, { timestamps: true })
 
+// static method to getAverageCost of tuitions
+CourseSchema.statics.getAverageCost = async function (bootcampId) {
+    const result = await this.aggregate([
+        {
+            $match: { bootcamp: bootcampId } // course field to match
+        },
+        {
+            $group: {
+                _id: '$bootcamp',
+                averageCost: { $avg: '$tuition' }
+            }
+        }
+    ])
+
+    // update the bootcamp's averagecost    
+    await this
+        .model('Bootcamp')
+        .findByIdAndUpdate(bootcampId, {
+            averageCost: Math.ceil(result[0].averageCost / 10) * 10
+        })
+}
+
+// call getAverageCost before remove / after save
+// since its a static method like Course.getAverageCost()
+// and not instance method like foundCourse.getAverageCost()
+
+CourseSchema.post('save', function () {
+    this.constructor.getAverageCost(this.bootcamp)
+})
+
+CourseSchema.pre('remove', function () {
+    this.constructor.getAverageCost(this.bootcamp)
+})
+
 module.exports = mongoose.model('Course', CourseSchema)
