@@ -40,6 +40,11 @@ UserSchema.pre('save', async function (next) {
     next();
 });
 
+// check the plain text pw to hashed pw
+UserSchema.methods.checkPassword = async function (plainTextPassword) {
+    return await bcrypt.compare(plainTextPassword, this.password);
+}
+
 // create a token for the user
 UserSchema.methods.getToken = function () {
     return jwt
