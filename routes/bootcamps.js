@@ -24,14 +24,14 @@ router.route('/radius/:zipcode/:distance')
 
 router.route('/')
   .get(toGetAdvancedResults(Bootcamp, 'courses'), getBootcamps)
-  .post(isLoggedIn, isAuthorized, createBootcamp);
+  .post(isLoggedIn, isAuthorized('user', 'publisher'), createBootcamp);
 
 router.route('/:bootcampId/photo')
-  .put(isLoggedIn, isAuthorized, uploadBootcampPhoto);
+  .put(isLoggedIn, isAuthorized('user', 'publisher'), uploadBootcampPhoto);
 
 router.route('/:bootcampId')
   .get(getBootcamp)
-  .put(isLoggedIn, isAuthorized, updateBootcamp)
-  .delete(isLoggedIn, isAuthorized, deleteBootcamp);
+  .put(isLoggedIn, isAuthorized('user', 'publisher'), updateBootcamp)
+  .delete(isLoggedIn, isAuthorized('user', 'publisher'), deleteBootcamp);
 
 module.exports = router;

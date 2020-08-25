@@ -19,11 +19,11 @@ router.route('/')
   .get(toGetAdvancedResults(Course, { path: 'bootcamp', select: 'name description' }), getCourses)
 
   // ROOT: /:bootcampId/courses
-  .post(isLoggedIn, isAuthorized, createCourse);
+  .post(isLoggedIn, isAuthorized('user', 'publisher'), createCourse);
 
 router.route('/:courseId')
   .get(getCourse)
-  .put(isLoggedIn, isAuthorized, updateCourse)
-  .delete(isLoggedIn, isAuthorized, deleteCourse);
+  .put(isLoggedIn, isAuthorized('user', 'publisher'), updateCourse)
+  .delete(isLoggedIn, isAuthorized('user', 'publisher'), deleteCourse);
 
 module.exports = router;
