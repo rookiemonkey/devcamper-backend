@@ -5,7 +5,7 @@ const sendEmail = require('../../utils/sendEmail');
 
 /**
  * @DESC process a forgot password token to be emailed
- * @PATH POST /api/v1/auth/login
+ * @PATH POST /api/v1/auth/forgotPassword
  */
 
 const forgotPassword = toHandleAsync(async (req, res, next) => {
