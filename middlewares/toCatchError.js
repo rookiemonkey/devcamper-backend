@@ -2,8 +2,6 @@ const chalk = require('chalk')
 
 const toCatchError = (error, req, res, next) => {
     let errorResponse = {}
-    let requestPath = req.url
-    let requestMethod = req.method
 
     // check any undocumented errors to be added if needed
     if (process.env.NODE_ENV === 'development' &&
@@ -29,11 +27,8 @@ const toCatchError = (error, req, res, next) => {
     }
 
     // Mongo Duplicate Key Error
-    if (error.code === 11000 &&
-        requestPath === '/api/v1/bootcamps' &&
-        requestMethod === 'POST'
-    ) {
-        errorResponse.message = `Bootcamp is already existing`
+    if (error.code === 11000) {
+        errorResponse.message = `Resource is already existing`
         errorResponse.status = 400
     }
 

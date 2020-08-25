@@ -7,9 +7,12 @@ const toHandleAsync = require('../../middlewares/toHandleAsync');
  */
 
 const createUser = toHandleAsync(async (req, res, next) => {
+    const { name, email, password, role } = req.body;
+
+    const createdUser = await User.create(req.body)
 
     res
-        .status(200)
+        .status(201)
         .json({ success: true })
 });
 
