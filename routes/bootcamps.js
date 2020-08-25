@@ -8,6 +8,10 @@ const deleteBootcamp = require('../controllers/bootcamps/deleteBootcamp');
 const uploadBootcampPhoto = require('../controllers/bootcamps/uploadBootcampPhoto');
 const getBootcampsWithinRadius = require('../controllers/bootcamps/getBootcampsRadius');
 
+// MIDDLEWARES:
+const toGetAdvancedResults = require('../middlewares/toGetAdvancedResults');
+const Bootcamp = require('../models/Bootcamp');
+
 // ROOT: /api/v1/bootcamps
 
 // forward all prefix /:bootcampId/courses => course router as root
@@ -17,7 +21,7 @@ router.route('/radius/:zipcode/:distance')
   .get(getBootcampsWithinRadius)
 
 router.route('/')
-  .get(getBootcamps)
+  .get(toGetAdvancedResults(Bootcamp, 'courses'), getBootcamps)
   .post(createBootcamp);
 
 router.route('/:bootcampId/photo')
