@@ -1,7 +1,14 @@
+const chalk = require('chalk')
+
 const toCatchError = (error, req, res, next) => {
     let errorResponse = {}
     let requestPath = req.url
     let requestMethod = req.method
+
+    if (process.env.NODE_ENV === 'development') {
+        console.log(chalk.redBright('[toCatchError.js]: An undocumented error occured'))
+        console.log(error)
+    }
 
     // custom error
     if (error.name === 'ErrorResponse') {
