@@ -5,6 +5,7 @@ const getBootcamp = require('../controllers/bootcamps/getBootcamp');
 const createBootcamp = require('../controllers/bootcamps/createBootcamp');
 const updateBootcamp = require('../controllers/bootcamps/updateBootcamp');
 const deleteBootcamp = require('../controllers/bootcamps/deleteBootcamp');
+const uploadBootcampPhoto = require('../controllers/bootcamps/uploadBootcampPhoto');
 const getBootcampsWithinRadius = require('../controllers/bootcamps/getBootcampsRadius');
 
 // ROOT: /api/v1/bootcamps
@@ -18,6 +19,9 @@ router.route('/radius/:zipcode/:distance')
 router.route('/')
   .get(getBootcamps)
   .post(createBootcamp);
+
+router.route('/:bootcampId/photo')
+  .put(uploadBootcampPhoto);
 
 router.route('/:bootcampId')
   .get(getBootcamp)
