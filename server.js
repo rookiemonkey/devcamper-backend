@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const fileupload = require('express-fileupload');
 const morgan = require('morgan');
 const chalk = require('chalk');
@@ -12,6 +13,7 @@ const toCatchError = require('./middlewares/toCatchError');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(fileupload())
 
 if (process.env.NODE_ENV === 'development') {
