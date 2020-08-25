@@ -10,25 +10,32 @@ const toHandleAsync = require('../../middlewares/toHandleAsync');
  */
 
 const getCourses = toHandleAsync(async (req, res, next) => {
-    let query;
 
+
+    // for /api/v1/bootcamps/:bootcampId/courses
     if (req.params.bootcampId) {
-        query = Course
+        const foundCourses = await Course
             .find({ bootcamp: req.params.bootcampId })
             .populate({ path: 'bootcamp', select: 'name description' })
+
+        if (!foundCourses) { return next(new ErrorResponse(`Courses doesn't exists`, 400)) }
+
+        res
+            .status(200)
+            .json({ success: true, count: foundCourses.length, data: foundCourses });
     }
+
+
+    // for /api/v1/courses/
     else {
-        query = Course
-            .find()
-            .populate({ path: 'bootcamp', select: 'name description' })
+
+        // res.advancedResults from toGetAdvancedResults middleware
+        if (!res.advancedResults) { return next(new ErrorResponse(`Courses doesn't exists`, 400)) }
+
+        res
+            .status(200)
+            .json(res.advancedResults);
     }
-
-    const foundCourses = await query;
-
-    res
-        .status(200)
-        .json({ success: true, count: foundCourses.length, data: foundCourses });
-
 });
 
 module.exports = getCourses;
