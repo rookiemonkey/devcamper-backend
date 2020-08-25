@@ -1,4 +1,3 @@
-const Bootcamp = require('../../models/Bootcamp');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
 
 /**
