@@ -1,5 +1,7 @@
 const router = require('express').Router({ mergeParams: true });
 const createReview = require('../controllers/reviews/createReview');
+const updateReview = require('../controllers/reviews/updateReview');
+const deleteReview = require('../controllers/reviews/deleteReview');
 const getReviews = require('../controllers/reviews/getReviews');
 const getReview = require('../controllers/reviews/getReview');
 
@@ -19,6 +21,8 @@ router.route('/')
   .post(isLoggedIn, isAuthorized('user', 'admin'), createReview)
 
 router.route('/:reviewId')
-  .get(getReview);
+  .get(getReview)
+  .put(isLoggedIn, isAuthorized('user', 'admin'), updateReview)
+  .delete(isLoggedIn, isAuthorized('user', 'admin'), deleteReview);
 
 module.exports = router;
