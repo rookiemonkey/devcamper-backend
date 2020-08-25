@@ -11,6 +11,10 @@ const deleteBootcamp = toHandleAsync(async (req, res, next) => {
   const foundBootcamp = await Bootcamp.findById(req.params.bootcampId)
   if (!foundBootcamp) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) }
 
+  if (foundBootcamp.user.toString() !== req.user._id.toString() && req.user.role !== 'admin') {
+    return next(new ErrorResponse(`Unauthorize to delete the bootcamp`, 401));
+  }
+
   await foundBootcamp.remove();
 
   res

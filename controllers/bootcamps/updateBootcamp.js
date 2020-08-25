@@ -8,10 +8,19 @@ const toHandleAsync = require('../../middlewares/toHandleAsync');
  */
 
 const updateBootcamp = toHandleAsync(async (req, res, next) => {
-  const foundBootcamp = await Bootcamp.findByIdAndUpdate(
-    req.params.bootcampId, req.body, { new: true, runValidators: true }
+  let foundBootcamp = await Bootcamp.findById(req.params.bootcampId);
+
+  if (!foundBootcamp) {
+    return next(new ErrorResponse(`Bootcamp doesn't exists`, 400));
+  }
+
+  if (foundBootcamp.user.toString() !== req.user._id.toString() && req.user.role !== 'admin') {
+    return next(new ErrorResponse(`Unauthorize to update the bootcamp`, 401));
+  }
+
+  foundBootcamp = await Bootcamp.findByIdAndUpdate(req.params.bootcampId, req.body,
+    { new: true, runValidators: true }
   )
-  if (!foundBootcamp) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) }
 
   res
     .status(200)
