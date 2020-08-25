@@ -1,5 +1,6 @@
 const router = require('express').Router({ mergeParams: true });
 const getReviews = require('../controllers/reviews/getReviews');
+const getReview = require('../controllers/reviews/getReview');
 
 // MIDDLEWARES:
 const isLoggedIn = require('../middlewares/isLoggedIn');
@@ -11,5 +12,8 @@ const Review = require('../models/Review');
 
 router.route('/')
   .get(toGetAdvancedResults(Review, { path: 'bootcamp', select: 'name description' }), getReviews)
+
+router.route('/:reviewId')
+  .get(getReview);
 
 module.exports = router;

@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const chalk = require('chalk');
 const Bootcamp = require('./models/Bootcamp');
 const Course = require('./models/Course');
+const Review = require('./models/Review');
 const User = require('./models/User');
 
 // check user options
@@ -24,7 +25,7 @@ mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
 })
 
 
@@ -32,6 +33,7 @@ mongoose.connect(process.env.DB_URL, {
 const Bootcamps = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/bootcamps.json`, 'utf-8'));
 const Courses = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/courses.json`, 'utf-8'));
 const Users = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/users.json`, 'utf-8'));
+const Reviews = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/reviews.json`, 'utf-8'));
 
 
 // function to import/delete to database
@@ -43,6 +45,7 @@ const importData = async () => {
         await Bootcamp.create(Bootcamps);
         await Course.create(Courses);
         await User.create(Users);
+        await Review.create(Reviews);
         spinner.stop(true);
         console.log(chalk.green('Data Imported to the database'));
         process.exit();
@@ -58,6 +61,7 @@ const destroyData = async () => {
         await Bootcamp.deleteMany();
         await Course.deleteMany();
         await User.deleteMany();
+        await Review.deleteMany();
         spinner.stop(true);
         console.log(chalk.green('Data Destroyed'));
         process.exit();
