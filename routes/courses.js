@@ -7,6 +7,7 @@ const getCourse = require('../controllers/courses/getCourse');
 
 // MIDDLEWARES:
 const isLoggedIn = require('../middlewares/isLoggedIn');
+const isAuthorized = require('../middlewares/isAuthorize');
 const toGetAdvancedResults = require('../middlewares/toGetAdvancedResults');
 const Course = require('../models/Course');
 
@@ -18,11 +19,11 @@ router.route('/')
   .get(toGetAdvancedResults(Course, { path: 'bootcamp', select: 'name description' }), getCourses)
 
   // ROOT: /:bootcampId/courses
-  .post(isLoggedIn, createCourse);
+  .post(isLoggedIn, isAuthorized, createCourse);
 
 router.route('/:courseId')
   .get(getCourse)
-  .put(isLoggedIn, updateCourse)
-  .delete(isLoggedIn, deleteCourse);
+  .put(isLoggedIn, isAuthorized, updateCourse)
+  .delete(isLoggedIn, isAuthorized, deleteCourse);
 
 module.exports = router;

@@ -10,6 +10,7 @@ const getBootcampsWithinRadius = require('../controllers/bootcamps/getBootcampsR
 
 // MIDDLEWARES:
 const isLoggedIn = require('../middlewares/isLoggedIn');
+const isAuthorized = require('../middlewares/isAuthorize');
 const toGetAdvancedResults = require('../middlewares/toGetAdvancedResults');
 const Bootcamp = require('../models/Bootcamp');
 
@@ -23,14 +24,14 @@ router.route('/radius/:zipcode/:distance')
 
 router.route('/')
   .get(toGetAdvancedResults(Bootcamp, 'courses'), getBootcamps)
-  .post(isLoggedIn, createBootcamp);
+  .post(isLoggedIn, isAuthorized, createBootcamp);
 
 router.route('/:bootcampId/photo')
-  .put(isLoggedIn, uploadBootcampPhoto);
+  .put(isLoggedIn, isAuthorized, uploadBootcampPhoto);
 
 router.route('/:bootcampId')
   .get(getBootcamp)
-  .put(isLoggedIn, updateBootcamp)
-  .delete(isLoggedIn, deleteBootcamp);
+  .put(isLoggedIn, isAuthorized, updateBootcamp)
+  .delete(isLoggedIn, isAuthorized, deleteBootcamp);
 
 module.exports = router;
