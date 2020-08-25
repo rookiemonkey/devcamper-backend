@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const chalk = require('chalk');
 const Bootcamp = require('./models/Bootcamp');
 const Course = require('./models/Course');
+const User = require('./models/User');
 
 // check user options
 if (!process.argv[2]) {
@@ -28,8 +29,9 @@ mongoose.connect(process.env.DB_URL, {
 
 
 // read seeds json files
-const Bootcamps = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/bootcamps.json`, 'utf-8'))
-const Courses = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/courses.json`, 'utf-8'))
+const Bootcamps = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/bootcamps.json`, 'utf-8'));
+const Courses = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/courses.json`, 'utf-8'));
+const Users = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/users.json`, 'utf-8'));
 
 
 // function to import/delete to database
@@ -39,7 +41,8 @@ const importData = async () => {
         spinner.setSpinnerString("⣾⣽⣻⢿⡿⣟⣯⣷");
         spinner.start();
         await Bootcamp.create(Bootcamps);
-        await Course.create(Courses)
+        await Course.create(Courses);
+        await User.create(Users);
         spinner.stop(true);
         console.log(chalk.green('Data Imported to the database'));
         process.exit();
@@ -54,6 +57,7 @@ const destroyData = async () => {
         spinner.start();
         await Bootcamp.deleteMany();
         await Course.deleteMany();
+        await User.deleteMany();
         spinner.stop(true);
         console.log(chalk.green('Data Destroyed'));
         process.exit();
