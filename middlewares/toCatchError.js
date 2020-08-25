@@ -5,8 +5,14 @@ const toCatchError = (error, req, res, next) => {
     let requestPath = req.url
     let requestMethod = req.method
 
-    if (process.env.NODE_ENV === 'development') {
-        console.log(chalk.redBright('[toCatchError.js]: An undocumented error occured'))
+    // check any undocumented errors to be added if needed
+    if (process.env.NODE_ENV === 'development' &&
+        error.name !== 'ValidationError' &&
+        error.name !== 'ErrorResponse' &&
+        error.name !== 'CastError' &&
+        error.code !== 11000
+    ) {
+        console.log(chalk.redBright.underline('[toCatchError.js]: An undocumented error occured'))
         console.log(error)
     }
 
