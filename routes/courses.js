@@ -1,5 +1,6 @@
 const router = require('express').Router({ mergeParams: true });
 const createCourse = require('../controllers/courses/createCourse');
+const updateCourse = require('../controllers/courses/updateCourse');
 const getCourses = require('../controllers/courses/getCourses');
 const getCourse = require('../controllers/courses/getCourse');
 
@@ -10,6 +11,7 @@ router.route('/')
   .post(createCourse);  // ROOT: /:bootcampId/courses
 
 router.route('/:courseId')
-  .get(getCourse);
+  .get(getCourse)
+  .put(updateCourse)
 
 module.exports = router;
