@@ -3,6 +3,7 @@ const createUser = require('../controllers/auth/createUser');
 const loginUser = require('../controllers/auth/loginUser');
 const getCurrentUser = require('../controllers/auth/getCurrentUser');
 const forgotPassword = require('../controllers/auth/forgotPassword');
+const resetPassword = require('../controllers/auth/resetPassword');
 
 // MIDDLEWARES:
 const isLoggedIn = require('../middlewares/isLoggedIn');
@@ -14,6 +15,9 @@ router.route('/me')
 
 router.route('/forgotPassword')
   .post(forgotPassword);
+
+router.route('/resetPassword/:resetToken')
+  .put(resetPassword);
 
 router.route('/signup')
   .post(createUser);
