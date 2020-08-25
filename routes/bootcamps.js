@@ -1,5 +1,6 @@
 const router = require('express')();
 const courseRouters = require('./courses');
+const reviewRouters = require('./reviews');
 const getBootcamps = require('../controllers/bootcamps/getBootcamps');
 const getBootcamp = require('../controllers/bootcamps/getBootcamp');
 const createBootcamp = require('../controllers/bootcamps/createBootcamp');
@@ -16,8 +17,9 @@ const Bootcamp = require('../models/Bootcamp');
 
 // ROOT: /api/v1/bootcamps
 
-// forward all prefix /:bootcampId/courses => course router as root
+// forward all prefix /:bootcampId/courses
 router.use('/:bootcampId/courses', courseRouters)
+router.use('/:bootcampId/reviews', reviewRouters)
 
 router.route('/radius/:zipcode/:distance')
   .get(getBootcampsWithinRadius)

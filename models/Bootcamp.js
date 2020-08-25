@@ -101,7 +101,7 @@ const BootcampSchema = new mongoose.Schema(
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
-            require: true
+            required: true
         }
     },
     {
