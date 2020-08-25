@@ -7,10 +7,14 @@ const toHandleAsync = require('../../middlewares/toHandleAsync');
  */
 
 const deleteCourse = toHandleAsync(async (req, res, next) => {
-    const deletedCourse = await Course.findById(req.params.courseId)
-    if (!deletedCourse) { return next(new ErrorResponse(`Course doesn't exists`, 400)) }
+    const foundCourse = await Course.findById(req.params.courseId)
+    if (!foundCourse) { return next(new ErrorResponse(`Course doesn't exists`, 400)) }
 
-    await deletedCourse.remove();
+    if (foundCourse.user.toString() !== req.user._id.toString() && req.user.role !== 'admin') {
+        return next(new ErrorResponse(`Unauthorize to update the course to this bootcamp`, 401));
+    }
+
+    await foundCourse.remove();
 
     res
         .status(200)

@@ -12,7 +12,13 @@ const createCourse = toHandleAsync(async (req, res, next) => {
     const foundBootcamp = await Bootcamp.findById(req.params.bootcampId);
     if (!foundBootcamp) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) }
 
-    const createdCourse = await Course.create({ ...req.body, bootcamp: req.params.bootcampId })
+    if (foundBootcamp.user.toString() !== req.user._id.toString() && req.user.role !== 'admin') {
+        return next(new ErrorResponse(`Unauthorize to add a course to this bootcamp`, 401));
+    }
+
+    req.body.bootcamp = req.params.bootcampId;
+    req.body.user = req.user._id;
+    const createdCourse = await Course.create(req.body);
 
     res
         .status(200)
