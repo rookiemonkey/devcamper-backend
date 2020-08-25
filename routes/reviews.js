@@ -16,7 +16,7 @@ router.route('/')
   .get(toGetAdvancedResults(Review, { path: 'bootcamp', select: 'name description' }), getReviews)
 
   // ROOT: /api/v1/bootcamps/:bootcampId/reviews
-  .post(isLoggedIn, isAuthorized('users', 'admins'), createReview)
+  .post(isLoggedIn, isAuthorized('user', 'admin'), createReview)
 
 router.route('/:reviewId')
   .get(getReview);
