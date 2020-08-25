@@ -2,6 +2,7 @@ const router = require('express')();
 const createUser = require('../controllers/auth/createUser');
 const loginUser = require('../controllers/auth/loginUser');
 const getCurrentUser = require('../controllers/auth/getCurrentUser');
+const forgotPassword = require('../controllers/auth/forgotPassword');
 
 // MIDDLEWARES:
 const isLoggedIn = require('../middlewares/isLoggedIn');
@@ -10,6 +11,9 @@ const isLoggedIn = require('../middlewares/isLoggedIn');
 
 router.route('/me')
   .get(isLoggedIn, getCurrentUser);
+
+router.route('/forgotPassword')
+  .post(forgotPassword);
 
 router.route('/signup')
   .post(createUser);

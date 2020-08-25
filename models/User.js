@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const isEmail = require('validator/lib/isEmail');
@@ -35,6 +36,8 @@ const UserSchema = new mongoose.Schema({
 
 // hash the password before saving
 UserSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) { return next(); }
+
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
     next();
@@ -53,6 +56,20 @@ UserSchema.methods.getToken = function () {
             process.env.JWT_SECRET_KEY,
             { expiresIn: process.env.JWT_EXPIRE_TIME }
         )
+}
+
+// create a reset password token for the user
+UserSchema.methods.getPasswordResetToken = function () {
+    const resetToken = crypto.randomBytes(20).toString('hex');
+
+    this.resetPasswordToken = crypto
+        .createHash('sha256')
+        .update(resetToken)
+        .digest('hex');
+
+    this.resetPasswordExpire = Date.now() + 10 * 60 * 1000; // 10mins
+
+    return resetToken;
 }
 
 module.exports = new mongoose.model('User', UserSchema);
