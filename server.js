@@ -16,7 +16,7 @@ const morgan = require('morgan');
 const chalk = require('chalk');
 const toCatchError = require('./middlewares/toCatchError');
 
-const rateLimit = rateLimit({
+const rateLimiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10 mins
     max: 100 // 100 request
     // 100 request in 10 mins
@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use(mongoSanitize());
 app.use(helmet());
 app.use(xssClean());
-app.use(rateLimit);
+app.use(rateLimiter);
 app.use(cors(corsOptions));
 app.use(hpp());
 app.use(fileupload());
