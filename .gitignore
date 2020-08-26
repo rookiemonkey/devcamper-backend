@@ -1,4 +1,5 @@
-*.env
+config.env
+.DS_Store
 /node_modules
 /_seeds
 /public/uploads
