@@ -6,15 +6,38 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const fileupload = require('express-fileupload');
+const mongoSanitize = require('express-mongo-sanitize');
+const rateLimit = require('express-rate-limit');
+const xssClean = require('xss-clean');
+const helmet = require('helmet');
+const cors = require('cors');
+const hpp = require('hpp');
 const morgan = require('morgan');
 const chalk = require('chalk');
 const toCatchError = require('./middlewares/toCatchError');
+
+const rateLimit = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 mins
+    max: 100 // 100 request
+    // 100 request in 10 mins
+})
+
+var corsOptions = {
+    origin: 'http://devcamper.io',
+    optionsSuccessStatus: 200
+}
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(fileupload())
+app.use(mongoSanitize());
+app.use(helmet());
+app.use(xssClean());
+app.use(rateLimit);
+app.use(cors(corsOptions));
+app.use(hpp());
+app.use(fileupload());
 
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
