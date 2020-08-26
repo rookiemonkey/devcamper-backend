@@ -9,7 +9,7 @@ const isLoggedIn = toHandleAsync(async (req, res, next) => {
 
     let token;
     if (isTokenPresent) { token = req.headers.authorization.split(' ')[1]; }
-    // else if (isCookiePresent) { token = req.cookies.token; };
+    else if (isCookiePresent) { token = req.cookies.token; };
 
     if (!token) { return next(new ErrorResponse('Unauthorized', 401)) };
 

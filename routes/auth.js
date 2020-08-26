@@ -1,6 +1,7 @@
 const router = require('express')();
 const createUser = require('../controllers/auth/createUser');
 const loginUser = require('../controllers/auth/loginUser');
+const logoutUser = require('../controllers/auth/logoutUser');
 const getCurrentUser = require('../controllers/auth/getCurrentUser');
 const forgotPassword = require('../controllers/auth/forgotPassword');
 const resetPassword = require('../controllers/auth/resetPassword');
@@ -32,5 +33,8 @@ router.route('/signup')
 
 router.route('/signin')
   .post(loginUser);
+
+router.route('/logout')
+  .get(logoutUser);
 
 module.exports = router;
