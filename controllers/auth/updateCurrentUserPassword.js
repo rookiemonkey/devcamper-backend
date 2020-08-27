@@ -13,6 +13,8 @@ const updateCurrentUserPassword = toHandleAsync(async (req, res, next) => {
         .findById(req.user._id)
         .select('+password');
 
+    if (foundUser.otp) { return next(new ErrorResponse('Account OTP is turned on', 400)); }
+
     const isMatch = await foundUser.checkPassword(req.body.currentPassword);
     if (!isMatch) { return next(new ErrorResponse(`Password incorrect`, 401)); }
 

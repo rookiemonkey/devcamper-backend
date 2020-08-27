@@ -1,3 +1,6 @@
+const Speakeasy = require("speakeasy");
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr(process.env.SECRET_KEY_OTP);
 const User = require('../../models/User');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
 const ErrorResponse = require('../../utils/class_error');
@@ -11,6 +14,22 @@ const sendEmail = require('../../utils/sendEmail');
 const forgotPassword = toHandleAsync(async (req, res, next) => {
     const foundUser = await User.findOne({ email: req.body.email })
     if (!foundUser) { return next(new ErrorResponse(`User doesn't exists`, 400)); }
+
+    if (foundUser.otp) {
+        const secret = Speakeasy.generateSecret({ length: 20 });
+        foundUser.otpKey = cryptr.encrypt(secret.base32);
+        await foundUser.save();
+
+        await sendEmail({
+            email: foundUser.email,
+            subject: 'Dev Camper New One-Time Password Authenticator Key',
+            message: `Here is your new authenticator key: ${secret.base32}. On you authenticator app, Please make sure that you choose  'Time-Based' as a type of key.`
+        });
+
+        return res
+            .status(200)
+            .json({ sucess: true, data: "Account OTP is enabled. Hence, OTP Authenticator key reset was done instead. Please check your email" });
+    }
 
     const resetToken = foundUser.getPasswordResetToken();
 

@@ -23,6 +23,10 @@ const loginUser = toHandleAsync(async (req, res, next) => {
         return next(new ErrorResponse(`Incorrect email and password`, 401));
     }
 
+    if (foundUser.otp) {
+        return next(new ErrorResponse('Please login using One-time password token', 400));
+    }
+
     const isMatch = await foundUser.checkPassword(password);
     if (!isMatch) {
         return next(new ErrorResponse(`Incorrect email and password`, 401));

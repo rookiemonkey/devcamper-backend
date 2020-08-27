@@ -2,6 +2,8 @@ const router = require('express')();
 const createUser = require('../controllers/auth/createUser');
 const loginUser = require('../controllers/auth/loginUser');
 const logoutUser = require('../controllers/auth/logoutUser');
+const toggleOtp = require('../controllers/auth/toggleOtp');
+const loginOtp = require('../controllers/auth/loginOtp');
 const getCurrentUser = require('../controllers/auth/getCurrentUser');
 const forgotPassword = require('../controllers/auth/forgotPassword');
 const resetPassword = require('../controllers/auth/resetPassword');
@@ -36,5 +38,9 @@ router.route('/signin')
 
 router.route('/logout')
   .get(logoutUser);
+
+router.route('/otp')
+  .put(isLoggedIn, toggleOtp)
+  .post(loginOtp);
 
 module.exports = router;

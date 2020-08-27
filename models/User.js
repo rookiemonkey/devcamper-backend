@@ -24,6 +24,14 @@ const UserSchema = new mongoose.Schema({
         default: 'user',
         enum: ['user', 'publisher']
     },
+    otp: {
+        type: Boolean,
+        default: false
+    },
+    otpKey: {
+        type: String,
+        select: false
+    },
     password: {
         type: String,
         minlength: 8,
