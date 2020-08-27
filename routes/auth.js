@@ -1,6 +1,7 @@
 const router = require('express')();
 const createUser = require('../controllers/auth/createUser');
 const loginUser = require('../controllers/auth/loginUser');
+const confirmEmail = require('../controllers/auth/confirmEmail');
 const logoutUser = require('../controllers/auth/logoutUser');
 const toggleOtp = require('../controllers/auth/toggleOtp');
 const loginOtp = require('../controllers/auth/loginOtp');
@@ -35,6 +36,9 @@ router.route('/signup')
 
 router.route('/signin')
   .post(loginUser);
+
+router.route('/confirm')
+  .get(confirmEmail);
 
 router.route('/logout')
   .get(logoutUser);

@@ -24,6 +24,14 @@ const UserSchema = new mongoose.Schema({
         default: 'user',
         enum: ['user', 'publisher']
     },
+    confirmEmailToken: {
+        type: String,
+        select: false
+    },
+    isEmailConfirmed: {
+        type: Boolean,
+        default: false,
+    },
     otp: {
         type: Boolean,
         default: false
@@ -79,5 +87,19 @@ UserSchema.methods.getPasswordResetToken = function () {
 
     return resetToken;
 }
+
+// create an email confirmation token
+UserSchema.methods.getConfirmEmailToken = function (next) {
+    const confirmationToken = crypto.randomBytes(20).toString('hex');
+
+    this.confirmEmailToken = crypto
+        .createHash('sha256')
+        .update(confirmationToken)
+        .digest('hex');
+
+    const confirmTokenExtend = crypto.randomBytes(100).toString('hex');
+    const confirmTokenCombined = `${confirmationToken}.${confirmTokenExtend}`;
+    return confirmTokenCombined;
+};
 
 module.exports = new mongoose.model('User', UserSchema);
