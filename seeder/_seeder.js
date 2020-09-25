@@ -6,10 +6,10 @@ const fs = require('fs');
 const Spinner = require('cli-spinner').Spinner;
 const mongoose = require('mongoose');
 const chalk = require('chalk');
-const Bootcamp = require('./models/Bootcamp');
-const Course = require('./models/Course');
-const Review = require('./models/Review');
-const User = require('./models/User');
+const Bootcamp = require('../models/Bootcamp');
+const Course = require('../models/Course');
+const Review = require('../models/Review');
+const User = require('../models/User');
 
 // check user options
 if (!process.argv[2]) {
