@@ -1,6 +1,7 @@
 const User = require('../../models/User');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
 const sendTokenCookie = require('../../utils/sendTokenCookie');
+const ErrorResponse = require('../../utils/class_error');
 
 /**
  * @DESC create a user
@@ -8,7 +9,11 @@ const sendTokenCookie = require('../../utils/sendTokenCookie');
  */
 
 const createUser = toHandleAsync(async (req, res, next) => {
-    const { name, email, password, role } = req.body;
+    const { name, email, password, passwordConfirm, role } = req.body;
+
+    if (passwordConfirm !== password)
+        return next(new ErrorResponse("Passwords doesn't match", 404))
+
     const createdUser = await User.create({ name, email, password, role });
 
     const confirmEmailToken = createdUser.getConfirmEmailToken();
