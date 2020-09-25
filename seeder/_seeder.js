@@ -30,10 +30,10 @@ mongoose.connect(process.env.DB_URL, {
 
 
 // read seeds json files
-const Bootcamps = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/bootcamps.json`, 'utf-8'));
-const Courses = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/courses.json`, 'utf-8'));
-const Users = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/users.json`, 'utf-8'));
-const Reviews = JSON.parse(fs.readFileSync(`${__dirname}/_seeds/reviews.json`, 'utf-8'));
+const Bootcamps = JSON.parse(fs.readFileSync(`${__dirname}/bootcamps.json`, 'utf-8'));
+const Courses = JSON.parse(fs.readFileSync(`${__dirname}/courses.json`, 'utf-8'));
+const Users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
+const Reviews = JSON.parse(fs.readFileSync(`${__dirname}/reviews.json`, 'utf-8'));
 
 
 // function to import/delete to database
