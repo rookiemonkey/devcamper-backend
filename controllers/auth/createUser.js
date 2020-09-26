@@ -1,5 +1,6 @@
 const User = require('../../models/User');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
+const sendEmail = require('../../utils/sendEmail');
 const sendTokenCookie = require('../../utils/sendTokenCookie');
 const ErrorResponse = require('../../utils/class_error');
 
