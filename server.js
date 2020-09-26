@@ -22,14 +22,11 @@ const rateLimiter = rateLimit({
     // 100 request in 10 mins
 })
 
-// should be passed into the cors() 
-// once frontend is deployed
-// const corsOptions = {
-//     origin: 'http://devcamper.io',
-//     optionsSuccessStatus: 200
-// }
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200
+}
 
-app.options('*', cors()) // include before other routes
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -38,7 +35,8 @@ app.use(mongoSanitize());
 app.use(helmet());
 app.use(xssClean());
 app.use(rateLimiter);
-app.use(cors());
+app.use(cors(corsOptions));
+app.options('*', cors())
 app.use(hpp());
 app.use(fileupload());
 
