@@ -22,10 +22,10 @@ const rateLimiter = rateLimit({
     // 100 request in 10 mins
 })
 
-// const corsOptions = {
-//     origin: 'http://localhost:3000',
-//     optionsSuccessStatus: 200
-// }
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200
+}
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,8 +35,8 @@ app.use(mongoSanitize());
 app.use(helmet());
 app.use(xssClean());
 app.use(rateLimiter);
-app.use(cors());
-app.options('*', cors())
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions))
 app.use(hpp());
 app.use(fileupload());
 
