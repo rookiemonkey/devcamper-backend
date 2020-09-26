@@ -37,7 +37,7 @@ app.use(mongoSanitize());
 app.use(helmet());
 app.use(xssClean());
 app.use(rateLimiter);
-app.use(cors());
+// app.use(cors());
 app.use(hpp());
 app.use(fileupload());
 
