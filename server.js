@@ -29,6 +29,7 @@ const rateLimiter = rateLimit({
 //     optionsSuccessStatus: 200
 // }
 
+app.options('*', cors()) // include before other routes
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -37,7 +38,7 @@ app.use(mongoSanitize());
 app.use(helmet());
 app.use(xssClean());
 app.use(rateLimiter);
-// app.use(cors());
+app.use(cors());
 app.use(hpp());
 app.use(fileupload());
 
