@@ -35,7 +35,7 @@ const forgotPassword = toHandleAsync(async (req, res, next) => {
 
     await foundUser.save({ validateBeforeSave: false });
 
-    const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/auth/resetPassword/${resetToken}`;
+    const resetUrl = `${req.protocol}://${req.get('host')}/password_update?token=${resetToken}`;
     const message = `A password reset has been requested. Please visit: ${resetUrl}`;
 
     try {

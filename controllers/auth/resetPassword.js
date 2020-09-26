@@ -19,7 +19,13 @@ const resetPassword = toHandleAsync(async (req, res, next) => {
         .findOne({ resetPasswordToken, resetPasswordExpire: { $gt: Date.now() } });
     if (!foundUser) { return next(new ErrorResponse(`Invalid token`, 400)); };
 
-    foundUser.password = req.body.password;
+    const { passwordNew, passwordConfirm } = req.body;
+
+    if (passwordNew !== passwordConfirm) {
+        return next(new ErrorResponse("Passwords doesn't match", 404))
+    }
+
+    foundUser.password = passwordNew;
     foundUser.resetPasswordToken = undefined;
     foundUser.resetPasswordExpire = undefined;
     await foundUser.save();
