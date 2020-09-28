@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const User = require('../../models/User');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
 const sendTokenCookie = require('../../utils/sendTokenCookie');
+const ErrorResponse = require('../../utils/class_error');
 
 /**
  * @desc    Confirm Email
