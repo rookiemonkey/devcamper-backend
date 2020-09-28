@@ -1,14 +1,15 @@
+const crypto = require('crypto');
 const User = require('../../models/User');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
 const sendTokenCookie = require('../../utils/sendTokenCookie');
 
 /**
  * @desc    Confirm Email
- * @route   GET /api/v1/auth/confirm
+ * @route   POST /api/v1/auth/confirm
  * @access  Public
  */
 const confirmEmail = toHandleAsync(async (req, res, next) => {
-    const rawToken = req.query.token
+    const rawToken = req.body.token
 
     if (!rawToken) { return next(new ErrorResponse('Invalid Token', 400)); }
 

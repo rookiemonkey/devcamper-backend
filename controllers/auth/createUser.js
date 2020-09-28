@@ -19,9 +19,7 @@ const createUser = toHandleAsync(async (req, res, next) => {
 
     const confirmEmailToken = createdUser.getConfirmEmailToken();
 
-    const confirmEmailURL = `${req.protocol}://${req.get(
-        'host',
-    )}/api/v1/auth/confirm?token=${confirmEmailToken}`;
+    const confirmEmailURL = `${process.env.FRONTEND_URL}/confirm?token=${confirmEmailToken}`;
 
     const message = `You are receiving this email because you need to confirm your email address. Please make a GET request to: \n\n ${confirmEmailURL}`;
 

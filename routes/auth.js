@@ -38,7 +38,7 @@ router.route('/signin')
   .post(loginUser);
 
 router.route('/confirm')
-  .get(confirmEmail);
+  .post(confirmEmail);
 
 router.route('/logout')
   .get(logoutUser);
