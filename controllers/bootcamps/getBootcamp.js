@@ -8,7 +8,10 @@ const toHandleAsync = require('../../middlewares/toHandleAsync');
  */
 
 const getBootcamp = toHandleAsync(async (req, res, next) => {
-  const foundBootcamp = await Bootcamp.findById(req.params.bootcampId)
+  const foundBootcamp = await Bootcamp
+    .findById(req.params.bootcampId)
+    .populate('courses')
+
   if (!foundBootcamp) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) }
 
   res
