@@ -11,7 +11,7 @@ const CourseSchema = new mongoose.Schema({
         required: [true, 'Course description is required']
     },
     weeks: {
-        type: String,
+        type: Number,
         required: [true, 'Course number of weeks is required']
     },
     tuition: {
