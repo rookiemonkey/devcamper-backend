@@ -17,6 +17,7 @@ const getReviews = toHandleAsync(async (req, res, next) => {
         const foundReviews = await Review
             .find({ bootcamp: req.params.bootcampId })
             .populate({ path: 'bootcamp', select: 'name description' })
+            .populate({ path: 'user', select: 'name' })
 
         if (!foundReviews) { return next(new ErrorResponse(`Reviews doesn't exists`, 400)) }
 
