@@ -1,6 +1,6 @@
 const User = require('../../models/User');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
-const ErrorResponse = require('../../utils/class_error');
+const sendEmail = require('../../utils/sendEmail');
 
 /**
  * @DESC update a user
@@ -9,12 +9,31 @@ const ErrorResponse = require('../../utils/class_error');
  */
 
 const updateUser = toHandleAsync(async (req, res, next) => {
-    if (req.body.password) {
-        return next(new ErrorResponse(`Cannot change a user's password`, 400))
+    const { name, email } = req.body;
+
+    const foundUser = await User.findById(req.user._id);
+
+    // if the email was changed
+    if (email !== foundUser.email) {
+        const confirmEmailToken = foundUser.getConfirmEmailToken();
+
+        const confirmEmailURL = `${process.env.FRONTEND_URL}/auth/confirm?token=${confirmEmailToken}`;
+
+        const message = `You are receiving this email because you changed your email for your DevCamper account. Please make a GET request to: \n\n ${confirmEmailURL}`;
+
+        await sendEmail({
+            email: email,
+            subject: 'Email Change confirmation token',
+            message,
+        });
+
+        foundUser.isEmailConfirmed = false;
+        foundUser.role = 'publisher';
+        await foundUser.save()
     }
 
     const updatedUser = await User
-        .findByIdAndUpdate(req.params.userId, req.body, { new: true, runValidators: true })
+        .findByIdAndUpdate(req.params.userId, { name, email }, { new: true, runValidators: true })
 
     res
         .status(201)
