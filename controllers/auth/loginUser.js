@@ -1,6 +1,6 @@
 const User = require('../../models/User');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
-const sendTokenCookie = require('../../utils/sendTokenCookie');
+const sendTokenCookieLogin = require('../../utils/sendTokenCookieLogin');
 const ErrorResponse = require('../../utils/class_error');
 
 /**
@@ -32,7 +32,7 @@ const loginUser = toHandleAsync(async (req, res, next) => {
         return next(new ErrorResponse(`Incorrect email and password`, 401));
     }
 
-    sendTokenCookie(foundUser, 200, res);
+    sendTokenCookieLogin(foundUser, 200, res);
 });
 
 module.exports = loginUser;

@@ -3,7 +3,7 @@ const Cryptr = require('cryptr');
 const cryptr = new Cryptr(process.env.SECRET_KEY_OTP);
 const User = require('../../models/User');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
-const sendTokenCookie = require('../../utils/sendTokenCookie');
+const sendTokenCookieLogin = require('../../utils/sendTokenCookieLogin');
 const ErrorResponse = require('../../utils/class_error');
 
 /**
@@ -29,7 +29,7 @@ const loginOtp = toHandleAsync(async (req, res, next) => {
 
     if (!isVerified) { return next(new ErrorResponse("Invalid token", 400)) }
 
-    sendTokenCookie(foundUser, 200, res);
+    sendTokenCookieLogin(foundUser, 200, res);
 });
 
 module.exports = loginOtp;
