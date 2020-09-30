@@ -18,6 +18,8 @@ const toGetAdvancedResults = (model, populate) => async (req, res, next) => {
     queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
 
     // convert to Object and save the Query
+    // since we are using find, we can use model key filters in query strings
+    // eg: user id, to find bootcamps created by a user
     query = model
         .find(JSON.parse(queryString))
 
