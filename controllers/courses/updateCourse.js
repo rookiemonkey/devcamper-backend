@@ -1,5 +1,6 @@
 const Course = require('../../models/Course');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
+const ErrorResponse = require('../../utils/class_error');
 
 /**
  * @DESC update a course
