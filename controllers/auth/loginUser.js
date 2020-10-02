@@ -24,7 +24,7 @@ const loginUser = toHandleAsync(async (req, res, next) => {
     }
 
     if (foundUser.otp) {
-        return next(new ErrorResponse('Please login using One-time password token', 400));
+        return next(new ErrorResponse('Account OTP is enabled. Please login using One-time password token', 400));
     }
 
     const isMatch = await foundUser.checkPassword(password);

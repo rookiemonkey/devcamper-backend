@@ -3,6 +3,7 @@ const Cryptr = require('cryptr');
 const cryptr = new Cryptr(process.env.SECRET_KEY_OTP);
 const User = require('../../models/User');
 const toHandleAsync = require('../../middlewares/toHandleAsync');
+const sendEmail = require('../../utils/sendEmail');
 const ErrorResponse = require('../../utils/class_error');
 
 /**
@@ -23,6 +24,7 @@ const toggleOtp = toHandleAsync(async (req, res, next) => {
 
     // if turned off
     if (!foundUser.otp) {
+        foundUser.otpKey = undefined;
         await foundUser.save();
 
         // logout the user
@@ -32,7 +34,7 @@ const toggleOtp = toHandleAsync(async (req, res, next) => {
                 httpOnly: true,
             })
             .status(200)
-            .json({ sucess: true, data: "Turned off OTP. Please login again. Setup your password again by using forgot password unless your remembered your old password" })
+            .json({ success: true, data: "Account OTP succesfully disabled!. Please login again. Setup your password again by using forgot password unless your remembered your old password" })
     }
 
     // if turned on, generate an authenticator and save the user
@@ -42,7 +44,7 @@ const toggleOtp = toHandleAsync(async (req, res, next) => {
 
     // send an email along with the authenticator key
     await sendEmail({
-        email: user.email,
+        email: req.user.email,
         subject: 'Dev Camper One-Time Password Activated',
         message: `Here is your authenticator key: ${secret.base32}. On you authenticator app, Please make sure that you choose  'Time-Based' as a type of key.`
     });
@@ -54,7 +56,7 @@ const toggleOtp = toHandleAsync(async (req, res, next) => {
             httpOnly: true,
         })
         .status(200)
-        .json({ sucess: true, data: "Turned on OTP. Please login again" });
+        .json({ success: true, data: "Account OTP succesfully enabled!. Please login again" });
 
 });
 

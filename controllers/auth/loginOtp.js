@@ -16,9 +16,9 @@ const loginOtp = toHandleAsync(async (req, res, next) => {
         .findOne({ email: req.body.email })
         .select('+otpKey');
 
-    if (!foundUser) { return next(new ErrorResponse("There is no user with that email", 404)) }
+    if (!foundUser) { return next(new ErrorResponse("Invalid Email/Token", 404)) }
     if (!foundUser.otp) { return next(new ErrorResponse("Account OTP is not enabled", 400)) }
-    if (!req.body.token) { return next(new ErrorResponse("Invalid token", 400)) }
+    if (!req.body.token) { return next(new ErrorResponse("Invalid Email/Token", 400)) }
 
     const isVerified = Speakeasy.totp.verify({
         secret: cryptr.decrypt(foundUser.otpKey),
