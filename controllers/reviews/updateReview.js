@@ -20,6 +20,9 @@ const updateReview = toHandleAsync(async (req, res, next) => {
     const updatedReview = await Review
         .findByIdAndUpdate(req.params.reviewId, req.body, { new: true, runValidators: true });
 
+    // getAverageRating pre save hooks will not work unless .save() is called
+    updatedReview.save();
+
     res
         .status(200)
         .json({ success: true, data: updatedReview });
