@@ -10,7 +10,14 @@ const toHandleAsync = require('../../middlewares/toHandleAsync');
 
 const createReview = toHandleAsync(async (req, res, next) => {
     const foundBootcamp = await Bootcamp.findById(req.params.bootcampId);
-    if (!foundBootcamp) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) };
+
+    if (!foundBootcamp) {
+        return next(new ErrorResponse(`Bootcamp doesn't exists`, 400))
+    };
+
+    if (JSON.stringify(foundBootcamp.user) == JSON.stringify(req.user._id)) {
+        return next(new ErrorResponse(`Cannot leave a review on your own bootcamp`, 400))
+    }
 
     req.body.bootcamp = req.params.bootcampId;
     req.body.user = req.user._id;
