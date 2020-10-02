@@ -5,6 +5,7 @@ const confirmEmail = require('../controllers/auth/confirmEmail');
 const logoutUser = require('../controllers/auth/logoutUser');
 const toggleOtp = require('../controllers/auth/toggleOtp');
 const loginOtp = require('../controllers/auth/loginOtp');
+const resetOtp = require('../controllers/auth/resetOtp');
 const getCurrentUser = require('../controllers/auth/getCurrentUser');
 const forgotPassword = require('../controllers/auth/forgotPassword');
 const resetPassword = require('../controllers/auth/resetPassword');
@@ -46,5 +47,8 @@ router.route('/logout')
 router.route('/otp')
   .put(isLoggedIn, toggleOtp)
   .post(loginOtp);
+
+router.route('/otp/reset')
+  .post(resetOtp);
 
 module.exports = router;
