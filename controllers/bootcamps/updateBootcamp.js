@@ -22,6 +22,9 @@ const updateBootcamp = toHandleAsync(async (req, res, next) => {
     { new: true, runValidators: true }
   )
 
+  // slugify and geocoding hooks will not work unless .save() is called
+  foundBootcamp.save();
+
   res
     .status(200)
     .json({ success: true, data: foundBootcamp });
