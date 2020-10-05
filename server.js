@@ -22,8 +22,20 @@ const rateLimiter = rateLimit({
     // 100 request in 10 mins
 })
 
+const allowedOrigins = [
+    'https://krrb-prod-devcamper-git-master.rookiemonkey.vercel.app/',
+    'https://krrb-prod-devcamper.rookiemonkey.vercel.app/',
+    'https://krrb-prod-devcamper.vercel.app/'
+]
+
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: function (origin, callback) {
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    },
     optionsSuccessStatus: 200
 }
 
