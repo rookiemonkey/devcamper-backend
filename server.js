@@ -22,23 +22,6 @@ const rateLimiter = rateLimit({
     // 100 request in 10 mins
 })
 
-const allowedOrigins = [
-    'https://krrb-prod-devcamper-git-master.rookiemonkey.vercel.app/',
-    'https://krrb-prod-devcamper.rookiemonkey.vercel.app/',
-    'https://krrb-prod-devcamper.vercel.app/'
-]
-
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS'))
-        }
-    },
-    optionsSuccessStatus: 200
-}
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -47,8 +30,8 @@ app.use(mongoSanitize());
 app.use(helmet());
 app.use(xssClean());
 app.use(rateLimiter);
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions))
+app.use(cors());
+app.options('*', cors())
 app.use(hpp());
 app.use(fileupload());
 
