@@ -42,9 +42,9 @@ const importData = async () => {
         const spinner = new Spinner('Importing data ... %s');
         spinner.setSpinnerString("⣾⣽⣻⢿⡿⣟⣯⣷");
         spinner.start();
+        await User.create(Users);
         await Bootcamp.create(Bootcamps);
         await Course.create(Courses);
-        await User.create(Users);
         await Review.create(Reviews);
         spinner.stop(true);
         console.log(chalk.green('Data Imported to the database'));
@@ -58,9 +58,9 @@ const destroyData = async () => {
         const spinner = new Spinner('Destroying data ... %s');
         spinner.setSpinnerString("⣾⣽⣻⢿⡿⣟⣯⣷");
         spinner.start();
+        await User.deleteMany();
         await Bootcamp.deleteMany();
         await Course.deleteMany();
-        await User.deleteMany();
         await Review.deleteMany();
         spinner.stop(true);
         console.log(chalk.green('Data Destroyed'));
