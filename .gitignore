@@ -1,3 +1,4 @@
 config.env
+import.sh
 /node_modules
 npm-debug.log
