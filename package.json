@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server.js",
     "dev": "NODE_ENV=development nodemon server.js",
-    "refresh": "node ./seeder/_seeder.js -d && node ./seeder/_seeder.js -i"
+    "seeder": "node ./seeder/_seeder.js -d && node ./seeder/_seeder.js -i"
   },
   "keywords": [],
   "author": "Kevin Basina",
