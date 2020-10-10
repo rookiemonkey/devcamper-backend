@@ -1,0 +1,1035 @@
+[{
+  "_id": {
+    "$oid": "5d725a1b7b292f5f8ceff788"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.525909,
+      41.483657
+    ],
+    "formattedAddress": "45 Upper College Rd, Kingston, RI 02881-2003, US",
+    "city": "Kingston",
+    "state": "RI",
+    "zipcode": "02881-2003",
+    "country": "US"
+  },
+  "careers": [
+    "Mobile Development",
+    "Web Development",
+    "Data Science",
+    "Business"
+  ],
+  "photo": "photo4.png",
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": true,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5c8a1d5b0190b214360dc032"
+  },
+  "name": "Devcentral Bootcamp",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
+  "website": "https://devcentral.com",
+  "phone": "(444) 444-4444",
+  "email": "enroll@devcentral.com",
+  "averageRating": 7.5,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.477Z"
+  },
+  "slug": "devcentral-bootcamp",
+  "averageCost": 6340
+},{
+  "_id": {
+    "$oid": "5d713995b721c3bb38c1f5d0"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.104028,
+      42.350846
+    ],
+    "formattedAddress": "233 Bay State Rd, Boston, MA 02215-1405, US",
+    "city": "Boston",
+    "state": "MA",
+    "zipcode": "02215-1405",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Business"
+  ],
+  "photo": "photo1.png",
+  "housing": true,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be045"
+  },
+  "name": "Devworks Bootcamp",
+  "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+  "website": "https://devworks.com",
+  "phone": "(111) 111-1111",
+  "email": "enroll@devworks.com",
+  "averageRating": 8,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.497Z"
+  },
+  "slug": "devworks-bootcamp",
+  "averageCost": 9000
+},{
+  "_id": {
+    "$oid": "5d713a66ec8f2b88b8f830b8"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.324239,
+      42.650484
+    ],
+    "formattedAddress": "220 Pawtucket St, Lowell, MA 01854-3502, US",
+    "city": "Lowell",
+    "state": "MA",
+    "zipcode": "01854-3502",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Mobile Development"
+  ],
+  "photo": "photo2.png",
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be046"
+  },
+  "name": "ModernTech Bootcamp",
+  "description": "ModernTech has one goal, and that is to make you a rockstar developer and/or designer with a six figure salary. We teach both development and UI/UX",
+  "website": "https://moderntech.com",
+  "phone": "(222) 222-2222",
+  "email": "enroll@moderntech.com",
+  "averageRating": 9,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.456Z"
+  },
+  "slug": "moderntech-bootcamp",
+  "averageCost": 11000
+},{
+  "_id": {
+    "$oid": "5d725a037b292f5f8ceff787"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -73.200576,
+      44.478305
+    ],
+    "formattedAddress": "85 S Prospect St, Burlington, VT 05401-3444, US",
+    "city": "Burlington",
+    "state": "VT",
+    "zipcode": "05401-3444",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "Data Science",
+    "Business"
+  ],
+  "photo": "photo3.png",
+  "housing": false,
+  "jobAssistance": false,
+  "jobGuarantee": false,
+  "acceptGi": false,
+  "user": {
+    "$oid": "5c8a1d5b0190b214360dc031"
+  },
+  "name": "Codemasters",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in full stack web development and data science",
+  "website": "https://codemasters.com",
+  "phone": "(333) 333-3333",
+  "email": "enroll@codemasters.com",
+  "averageRating": 10,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.462Z"
+  },
+  "slug": "codemasters",
+  "averageCost": 10500
+},{
+  "_id": {
+    "$oid": "5f7aaff575959b144f484078"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.104028,
+      42.350846
+    ],
+    "formattedAddress": "233 Bay State Rd, Boston, MA 02215-1405, US",
+    "city": "Boston",
+    "state": "MA",
+    "zipcode": "02215-1405",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Business"
+  ],
+  "photo": "photo5.png",
+  "housing": true,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be045"
+  },
+  "name": "Bootcamp 1",
+  "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+  "website": "https://devworks.com",
+  "phone": "(111) 111-1111",
+  "email": "enroll@devworks.com",
+  "averageRating": 8,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.497Z"
+  },
+  "slug": "devworks-bootcamp",
+  "averageCost": 9000
+},{
+  "_id": {
+    "$oid": "5f7aaffe75959b144f484079"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.104028,
+      42.350846
+    ],
+    "formattedAddress": "233 Bay State Rd, Boston, MA 02215-1405, US",
+    "city": "Boston",
+    "state": "MA",
+    "zipcode": "02215-1405",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Business"
+  ],
+  "photo": "photo6.png",
+  "housing": true,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be045"
+  },
+  "name": "Bootcamp 2",
+  "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+  "website": "https://devworks.com",
+  "phone": "(111) 111-1111",
+  "email": "enroll@devworks.com",
+  "averageRating": 8,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.497Z"
+  },
+  "slug": "devworks-bootcamp",
+  "averageCost": 9000
+},{
+  "_id": {
+    "$oid": "5f7ab00475959b144f48407a"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.104028,
+      42.350846
+    ],
+    "formattedAddress": "233 Bay State Rd, Boston, MA 02215-1405, US",
+    "city": "Boston",
+    "state": "MA",
+    "zipcode": "02215-1405",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Business"
+  ],
+  "photo": "photo7.png",
+  "housing": true,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be045"
+  },
+  "name": "Bootcamp 3",
+  "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+  "website": "https://devworks.com",
+  "phone": "(111) 111-1111",
+  "email": "enroll@devworks.com",
+  "averageRating": 8,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.497Z"
+  },
+  "slug": "devworks-bootcamp",
+  "averageCost": 9000
+},{
+  "_id": {
+    "$oid": "5f7ab00f75959b144f48407b"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.104028,
+      42.350846
+    ],
+    "formattedAddress": "233 Bay State Rd, Boston, MA 02215-1405, US",
+    "city": "Boston",
+    "state": "MA",
+    "zipcode": "02215-1405",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Business"
+  ],
+  "photo": "photo8.png",
+  "housing": true,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be045"
+  },
+  "name": "Bootcamp 4",
+  "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+  "website": "https://devworks.com",
+  "phone": "(111) 111-1111",
+  "email": "enroll@devworks.com",
+  "averageRating": 8,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.497Z"
+  },
+  "slug": "devworks-bootcamp",
+  "averageCost": 9000
+},{
+  "_id": {
+    "$oid": "5f7ab01875959b144f48407c"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.104028,
+      42.350846
+    ],
+    "formattedAddress": "233 Bay State Rd, Boston, MA 02215-1405, US",
+    "city": "Boston",
+    "state": "MA",
+    "zipcode": "02215-1405",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Business"
+  ],
+  "photo": "photo9.png",
+  "housing": true,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be045"
+  },
+  "name": "Bootcamp 5",
+  "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+  "website": "https://devworks.com",
+  "phone": "(111) 111-1111",
+  "email": "enroll@devworks.com",
+  "averageRating": 8,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.497Z"
+  },
+  "slug": "devworks-bootcamp",
+  "averageCost": 9000
+},{
+  "_id": {
+    "$oid": "5f7ab02675959b144f48407d"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.104028,
+      42.350846
+    ],
+    "formattedAddress": "233 Bay State Rd, Boston, MA 02215-1405, US",
+    "city": "Boston",
+    "state": "MA",
+    "zipcode": "02215-1405",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Business"
+  ],
+  "photo": "photo10.png",
+  "housing": true,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be045"
+  },
+  "name": "Bootcamp 6",
+  "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+  "website": "https://devworks.com",
+  "phone": "(111) 111-1111",
+  "email": "enroll@devworks.com",
+  "averageRating": 8,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.497Z"
+  },
+  "slug": "devworks-bootcamp",
+  "averageCost": 9000
+},{
+  "_id": {
+    "$oid": "5f7ab03375959b144f48407e"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.104028,
+      42.350846
+    ],
+    "formattedAddress": "233 Bay State Rd, Boston, MA 02215-1405, US",
+    "city": "Boston",
+    "state": "MA",
+    "zipcode": "02215-1405",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Business"
+  ],
+  "photo": "photo11.png",
+  "housing": true,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be045"
+  },
+  "name": "Bootcamp 7",
+  "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+  "website": "https://devworks.com",
+  "phone": "(111) 111-1111",
+  "email": "enroll@devworks.com",
+  "averageRating": 8,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.497Z"
+  },
+  "slug": "devworks-bootcamp",
+  "averageCost": 9000
+},{
+  "_id": {
+    "$oid": "5f7ab03c75959b144f48407f"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.324239,
+      42.650484
+    ],
+    "formattedAddress": "220 Pawtucket St, Lowell, MA 01854-3502, US",
+    "city": "Lowell",
+    "state": "MA",
+    "zipcode": "01854-3502",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Mobile Development"
+  ],
+  "photo": "photo12.png",
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be046"
+  },
+  "name": "Bootcamp 8",
+  "description": "ModernTech has one goal, and that is to make you a rockstar developer and/or designer with a six figure salary. We teach both development and UI/UX",
+  "website": "https://moderntech.com",
+  "phone": "(222) 222-2222",
+  "email": "enroll@moderntech.com",
+  "averageRating": 9,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.456Z"
+  },
+  "slug": "moderntech-bootcamp",
+  "averageCost": 11000
+},{
+  "_id": {
+    "$oid": "5f7ab04475959b144f484080"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -73.200576,
+      44.478305
+    ],
+    "formattedAddress": "85 S Prospect St, Burlington, VT 05401-3444, US",
+    "city": "Burlington",
+    "state": "VT",
+    "zipcode": "05401-3444",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "Data Science",
+    "Business"
+  ],
+  "photo": "photo13.png",
+  "housing": false,
+  "jobAssistance": false,
+  "jobGuarantee": false,
+  "acceptGi": false,
+  "user": {
+    "$oid": "5c8a1d5b0190b214360dc031"
+  },
+  "name": "Bootcamp 9",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in full stack web development and data science",
+  "website": "https://codemasters.com",
+  "phone": "(333) 333-3333",
+  "email": "enroll@codemasters.com",
+  "averageRating": 10,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.462Z"
+  },
+  "slug": "codemasters",
+  "averageCost": 10500
+},{
+  "_id": {
+    "$oid": "5f7ab04e75959b144f484081"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.525909,
+      41.483657
+    ],
+    "formattedAddress": "45 Upper College Rd, Kingston, RI 02881-2003, US",
+    "city": "Kingston",
+    "state": "RI",
+    "zipcode": "02881-2003",
+    "country": "US"
+  },
+  "careers": [
+    "Mobile Development",
+    "Web Development",
+    "Data Science",
+    "Business"
+  ],
+  "photo": "photo14.png",
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": true,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5c8a1d5b0190b214360dc032"
+  },
+  "name": "Bootcamp 10",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
+  "website": "https://devcentral.com",
+  "phone": "(444) 444-4444",
+  "email": "enroll@devcentral.com",
+  "averageRating": 7.5,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.477Z"
+  },
+  "slug": "devcentral-bootcamp",
+  "averageCost": 6340
+},{
+  "_id": {
+    "$oid": "5f7ab05975959b144f484082"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.104028,
+      42.350846
+    ],
+    "formattedAddress": "233 Bay State Rd, Boston, MA 02215-1405, US",
+    "city": "Boston",
+    "state": "MA",
+    "zipcode": "02215-1405",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Business"
+  ],
+  "photo": "photo15.png",
+  "housing": true,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be045"
+  },
+  "name": "Bootcamp 11",
+  "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+  "website": "https://devworks.com",
+  "phone": "(111) 111-1111",
+  "email": "enroll@devworks.com",
+  "averageRating": 8,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.497Z"
+  },
+  "slug": "devworks-bootcamp",
+  "averageCost": 9000
+},{
+  "_id": {
+    "$oid": "5f7ab06275959b144f484083"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.525909,
+      41.483657
+    ],
+    "formattedAddress": "45 Upper College Rd, Kingston, RI 02881-2003, US",
+    "city": "Kingston",
+    "state": "RI",
+    "zipcode": "02881-2003",
+    "country": "US"
+  },
+  "careers": [
+    "Mobile Development",
+    "Web Development",
+    "Data Science",
+    "Business"
+  ],
+  "photo": "photo16.png",
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": true,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5c8a1d5b0190b214360dc032"
+  },
+  "name": "Bootcamp 12",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
+  "website": "https://devcentral.com",
+  "phone": "(444) 444-4444",
+  "email": "enroll@devcentral.com",
+  "averageRating": 7.5,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.477Z"
+  },
+  "slug": "devcentral-bootcamp",
+  "averageCost": 6340
+},{
+  "_id": {
+    "$oid": "5f7ab07275959b144f484085"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -73.200576,
+      44.478305
+    ],
+    "formattedAddress": "85 S Prospect St, Burlington, VT 05401-3444, US",
+    "city": "Burlington",
+    "state": "VT",
+    "zipcode": "05401-3444",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "Data Science",
+    "Business"
+  ],
+  "photo": "photo17.png",
+  "housing": false,
+  "jobAssistance": false,
+  "jobGuarantee": false,
+  "acceptGi": false,
+  "user": {
+    "$oid": "5c8a1d5b0190b214360dc031"
+  },
+  "name": "Bootcamp 13",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in full stack web development and data science",
+  "website": "https://codemasters.com",
+  "phone": "(333) 333-3333",
+  "email": "enroll@codemasters.com",
+  "averageRating": 10,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.462Z"
+  },
+  "slug": "codemasters",
+  "averageCost": 10500
+},{
+  "_id": {
+    "$oid": "5f7ab08075959b144f484086"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.324239,
+      42.650484
+    ],
+    "formattedAddress": "220 Pawtucket St, Lowell, MA 01854-3502, US",
+    "city": "Lowell",
+    "state": "MA",
+    "zipcode": "01854-3502",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Mobile Development"
+  ],
+  "photo": "photo18.png",
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be046"
+  },
+  "name": "Bootcamp 14",
+  "description": "ModernTech has one goal, and that is to make you a rockstar developer and/or designer with a six figure salary. We teach both development and UI/UX",
+  "website": "https://moderntech.com",
+  "phone": "(222) 222-2222",
+  "email": "enroll@moderntech.com",
+  "averageRating": 9,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.456Z"
+  },
+  "slug": "moderntech-bootcamp",
+  "averageCost": 11000
+},{
+  "_id": {
+    "$oid": "5f7ab08d75959b144f484087"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.104028,
+      42.350846
+    ],
+    "formattedAddress": "233 Bay State Rd, Boston, MA 02215-1405, US",
+    "city": "Boston",
+    "state": "MA",
+    "zipcode": "02215-1405",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Business"
+  ],
+  "photo": "photo19.png",
+  "housing": true,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be045"
+  },
+  "name": "Bootcamp 15",
+  "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+  "website": "https://devworks.com",
+  "phone": "(111) 111-1111",
+  "email": "enroll@devworks.com",
+  "averageRating": 8,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.497Z"
+  },
+  "slug": "devworks-bootcamp",
+  "averageCost": 9000
+},{
+  "_id": {
+    "$oid": "5f7ab09675959b144f484088"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.324239,
+      42.650484
+    ],
+    "formattedAddress": "220 Pawtucket St, Lowell, MA 01854-3502, US",
+    "city": "Lowell",
+    "state": "MA",
+    "zipcode": "01854-3502",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "UI/UX",
+    "Mobile Development"
+  ],
+  "photo": "photo20.png",
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": false,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5d7a514b5d2c12c7449be046"
+  },
+  "name": "Bootcamp 16",
+  "description": "ModernTech has one goal, and that is to make you a rockstar developer and/or designer with a six figure salary. We teach both development and UI/UX",
+  "website": "https://moderntech.com",
+  "phone": "(222) 222-2222",
+  "email": "enroll@moderntech.com",
+  "averageRating": 9,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.456Z"
+  },
+  "slug": "moderntech-bootcamp",
+  "averageCost": 11000
+},{
+  "_id": {
+    "$oid": "5f7ab0a175959b144f484089"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -73.200576,
+      44.478305
+    ],
+    "formattedAddress": "85 S Prospect St, Burlington, VT 05401-3444, US",
+    "city": "Burlington",
+    "state": "VT",
+    "zipcode": "05401-3444",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "Data Science",
+    "Business"
+  ],
+  "photo": "no-photo.png",
+  "housing": false,
+  "jobAssistance": false,
+  "jobGuarantee": false,
+  "acceptGi": false,
+  "user": {
+    "$oid": "5c8a1d5b0190b214360dc031"
+  },
+  "name": "Bootcamp 18",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in full stack web development and data science",
+  "website": "https://codemasters.com",
+  "phone": "(333) 333-3333",
+  "email": "enroll@codemasters.com",
+  "averageRating": 10,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.462Z"
+  },
+  "slug": "codemasters",
+  "averageCost": 10500
+},{
+  "_id": {
+    "$oid": "5f7ab0ab75959b144f48408a"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -73.200576,
+      44.478305
+    ],
+    "formattedAddress": "85 S Prospect St, Burlington, VT 05401-3444, US",
+    "city": "Burlington",
+    "state": "VT",
+    "zipcode": "05401-3444",
+    "country": "US"
+  },
+  "careers": [
+    "Web Development",
+    "Data Science",
+    "Business"
+  ],
+  "photo": "no-photo.png",
+  "housing": false,
+  "jobAssistance": false,
+  "jobGuarantee": false,
+  "acceptGi": false,
+  "user": {
+    "$oid": "5c8a1d5b0190b214360dc031"
+  },
+  "name": "Bootcamp 19",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in full stack web development and data science",
+  "website": "https://codemasters.com",
+  "phone": "(333) 333-3333",
+  "email": "enroll@codemasters.com",
+  "averageRating": 10,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.462Z"
+  },
+  "slug": "codemasters",
+  "averageCost": 10500
+},{
+  "_id": {
+    "$oid": "5f7ab0b575959b144f48408b"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -71.525909,
+      41.483657
+    ],
+    "formattedAddress": "45 Upper College Rd, Kingston, RI 02881-2003, US",
+    "city": "Kingston",
+    "state": "RI",
+    "zipcode": "02881-2003",
+    "country": "US"
+  },
+  "careers": [
+    "Mobile Development",
+    "Web Development",
+    "Data Science",
+    "Business"
+  ],
+  "photo": "no-photo.png",
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": true,
+  "acceptGi": true,
+  "user": {
+    "$oid": "5c8a1d5b0190b214360dc032"
+  },
+  "name": "Bootcamp 20",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
+  "website": "https://devcentral.com",
+  "phone": "(444) 444-4444",
+  "email": "enroll@devcentral.com",
+  "averageRating": 7.5,
+  "createdAt": {
+    "$date": "2020-10-05T05:31:35.131Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T05:31:37.477Z"
+  },
+  "slug": "devcentral-bootcamp",
+  "averageCost": 6340
+},{
+  "_id": {
+    "$oid": "5f7b07a06dd37400179a059e"
+  },
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      121.099354,
+      14.633108
+    ],
+    "formattedAddress": ", Marikina, , PH",
+    "city": "Marikina",
+    "state": "",
+    "zipcode": "",
+    "country": "PH"
+  },
+  "careers": [
+    "Web Development",
+    "Business"
+  ],
+  "photo": "photo_5f7b07a06dd37400179a059e.jpg",
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": true,
+  "acceptGi": false,
+  "name": "Test Bootcamp Deployed",
+  "phone": "987654321",
+  "email": "test@gmail.com",
+  "website": "www.google.com",
+  "description": "Testting",
+  "user": {
+    "$oid": "5f7acf6eb5f25637327d02f9"
+  },
+  "createdAt": {
+    "$date": "2020-10-05T11:46:40.714Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-05T14:11:43.218Z"
+  },
+  "slug": "test-bootcamp-deployed",
+  "averageCost": 14250
+}]
