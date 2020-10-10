@@ -8,6 +8,7 @@
 		"phone": "(111) 111-1111",
 		"email": "enroll@devworks.com",
 		"address": "233 Bay State Rd Boston MA 02215",
+		"photo": "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&h=350",
 		"careers": [
 			"Web Development",
 			"UI/UX",
@@ -28,6 +29,7 @@
 		"phone": "(222) 222-2222",
 		"email": "enroll@moderntech.com",
 		"address": "220 Pawtucket St, Lowell, MA 01854",
+		"photo": "https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg?auto=compress&cs=tinysrgb&h=350",
 		"careers": [
 			"Web Development",
 			"UI/UX",
@@ -48,6 +50,7 @@
 		"phone": "(333) 333-3333",
 		"email": "enroll@codemasters.com",
 		"address": "85 South Prospect Street Burlington VT 05405",
+		"photo": "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&h=350",
 		"careers": [
 			"Web Development",
 			"Data Science",
@@ -68,6 +71,7 @@
 		"phone": "(444) 444-4444",
 		"email": "enroll@devcentral.com",
 		"address": "45 Upper College Rd Kingston RI 02881",
+		"photo": "https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg?auto=compress&cs=tinysrgb&h=350",
 		"careers": [
 			"Mobile Development",
 			"Web Development",
