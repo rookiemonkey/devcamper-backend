@@ -20,7 +20,7 @@ const uploadBootcampPhoto = toHandleAsync(async (req, res, next) => {
     }
 
     // check if the owner of the bootcamp
-    if (JSON.stringify(req.user) !== JSON.stringify(foundBootcamp.user)) {
+    if (JSON.stringify(req.user._id) !== JSON.stringify(foundBootcamp.user)) {
         return next(new ErrorResponse('Invalid Request', 400))
     }
 
