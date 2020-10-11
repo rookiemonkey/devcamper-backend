@@ -10,9 +10,19 @@ const toHandleAsync = require('../../middlewares/toHandleAsync');
 
 const uploadBootcampPhoto = toHandleAsync(async (req, res, next) => {
     const foundBootcamp = await Bootcamp.findById(req.params.bootcampId)
-    if (!foundBootcamp) { return next(new ErrorResponse(`Bootcamp doesn't exists`, 400)) }
+    if (!foundBootcamp) {
+        return next(new ErrorResponse(`Bootcamp doesn't exists`, 400))
+    }
 
-    if (!req.files) { return next(new ErrorResponse('Please upload a bootcamp photo', 400)) }
+    // check if there was an uploaded photo
+    if (!req.files) {
+        return next(new ErrorResponse('Please upload a bootcamp photo', 400))
+    }
+
+    // check if the owner of the bootcamp
+    if (JSON.stringify(req.user) !== JSON.stringify(foundBootcamp.user)) {
+        return next(new ErrorResponse('Invalid Request', 400))
+    }
 
     const { file } = req.files;
 
