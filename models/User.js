@@ -59,6 +59,24 @@ UserSchema.pre('save', async function (next) {
     next();
 });
 
+// cascade delete relative data when user is deleted
+UserSchema.pre('remove', async function (next) {
+    let userToBeRemoved = this
+
+    // returns all bootcamps of the userToBeRemoved in array
+    const userBootcamps = await userToBeRemoved
+        .model('Bootcamp')
+        .find({ user: userToBeRemoved._id })
+
+    // loop thru all the bootcamps of the user and delete it
+    for (let i = 0; i <= userBootcamps.legnth - 1; i++) {
+        // triggers the pre-remove hook and also deletes the image & reviews
+        await userBootcamps[i].remove();
+    }
+
+    next();
+})
+
 // check the plain text pw to hashed pw
 UserSchema.methods.checkPassword = async function (plainTextPassword) {
     return await bcrypt.compare(plainTextPassword, this.password);

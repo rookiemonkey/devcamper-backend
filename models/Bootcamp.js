@@ -1,3 +1,4 @@
+const fs = require('fs');
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 const isUrl = require('validator/lib/isURL');
@@ -119,13 +120,24 @@ BootcampSchema.virtual('courses', {
     justOne: false // since we want an array
 })
 
-// cascade delete courses when bootcamp is deleted
+// cascade delete relative data when bootcamp is deleted
 BootcampSchema.pre('remove', async function (next) {
     let bootcampToBeRemoved = this
 
+    // delete the courses associated to the bootcamp
     await bootcampToBeRemoved
         .model('Course')
         .deleteMany({ bootcamp: bootcampToBeRemoved._id })
+
+    // delete the reviews associated to the bootcamp
+    await bootcampToBeRemoved
+        .model('Review')
+        .deleteMany({ bootcamp: bootcampToBeRemoved._id })
+
+    // delete the bootcamp image from local server storage
+    const pathToImage = `${process.env.FILE_UPLOAD_PATH}/${file.name}`;
+    if (fs.existsSync(pathToImage)) fs.unlinkSync(pathToImage)
+
     next();
 })
 
